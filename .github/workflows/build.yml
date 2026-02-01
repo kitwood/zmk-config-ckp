@@ -34,11 +34,11 @@ jobs:
       - name: West Zephyr export
         run: west zephyr-export
       - name: West Build (bt65)
-        run: west build -s zmk/app -d build/bt65 -b bt65 -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config" -DANSI
+        run: west build -s zmk/app -b bt65 -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config" -DANSI=true
       - name: bt65 Kconfig file
-        run: cat build/bt65/zephyr/.config | grep -v "^#" | grep -v "^$"
+        run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/bt65/zephyr/zmk.uf2 bt65.uf2
+        run: cp build/zephyr/zmk.uf2 bt65.uf2
       - name: Archive (bt65)
         uses: actions/upload-artifact@v4
         with:
