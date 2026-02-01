@@ -1,5 +1,5 @@
 identifier: bt65
-name: bt65
+name: BT65_V1
 type: mcu
 arch: arm
 toolchain:
